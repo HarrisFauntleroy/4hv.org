@@ -42,7 +42,7 @@ import TableHeader from "../Table/Header";
 import { Pagination } from "../Table/Pagination";
 import { DebouncedInput, fuzzyFilter } from "./Filter";
 
-declare module "@tanstack/table-core" {
+declare module "@tanstack/react-table" {
   interface FilterFns {
     fuzzy: FilterFn<unknown>;
   }
