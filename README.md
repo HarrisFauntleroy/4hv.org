@@ -2,7 +2,7 @@
 
 ![WIP Badge](https://img.shields.io/badge/Project%20Status%3A-wip%20%F0%9F%9A%A7-orange)
 
-[![CI Actions 🚀🤖](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml/badge.svg)](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml)[![Code Coverage 📊](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/coverage.yml/badge.svg)](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/coverage.yml)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/HarrisFauntleroy/4hv.org-project?style=flat)
+[![CI Actions 🚀🤖](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml/badge.svg)](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/HarrisFauntleroy/4hv.org-project?style=flat)
 
 <!-- PROJECT_DESCRIPTION -->
 
