@@ -5,7 +5,7 @@
   "homepage": "https://strongly-typed.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HarrisFauntleroy/strongly-typed"
+    "url": "git+https://github.com/HarrisFauntleroy/strongly-typed.git"
   },
   "license": "MIT",
   "author": {
@@ -41,7 +41,8 @@
     "type-check": "tsc --noEmit",
     "watch": "yarn type-check --watch",
     "prepare": "husky install",
-    "start-db": "docker-compose up database"
+    "start-db": "docker-compose up database",
+    "chromatic": "npx chromatic --project-token=chpt_66b2a6e6d032861"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -156,6 +157,7 @@
     "@choc-ui/chakra-autocomplete": "^5.1.9",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@harrisfauntleroy/design-system": "^2.1.5",
     "@mantine/core": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
     "@mantine/modals": "^6.0.17",
@@ -237,6 +239,7 @@
     "@types/ws": "^8.5.5",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
+    "chromatic": "^6.22.0",
     "cross-env": "7.0.3",
     "dotenv": "16.1.0",
     "eslint": "^8.43.0",
@@ -275,5 +278,10 @@
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/HarrisFauntleroy/strongly-typed/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "strongly-typed@1.0.1"
 }

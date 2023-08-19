@@ -1,8 +1,14 @@
 import { Avatar, Text, Timeline, Title } from "@mantine/core";
 import { Endpoints } from "@octokit/types";
 import { format } from "date-fns";
+import dynamic from "next/dynamic";
 import { Fragment, useEffect, useState } from "react";
-import { Markdown } from "../Markdown";
+
+const Markdown = dynamic(
+  () =>
+    import("@harrisfauntleroy/design-system").then(({ Markdown }) => Markdown),
+  { ssr: false }
+);
 
 type Props = { repo: string };
 
@@ -46,7 +52,7 @@ export function Releases({ repo }: Props) {
             </Text>
           }
         >
-          <Markdown>{String(release.body)}</Markdown>
+          <Markdown colorScheme="light" source={String(release.body)} />
           <Text
             color="dimmed"
             size="sm"

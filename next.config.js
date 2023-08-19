@@ -9,8 +9,4 @@ module.exports = {
   images: {
     domains: ["https://lh3.googleusercontent.com"],
   },
-  experimental: {
-    appDir: true,
-    esmExternals: "loose",
-  },
 };

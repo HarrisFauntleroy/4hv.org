@@ -1,0 +1,131 @@
+🔎 checking possible migrations..
+
+🔎 found a 'github-flavored-markdown-mdx' migration:
+╭ Automigration detected ─────────────╮
+│                                     │
+│   In MDX1 you had the option of     │
+│   using GitHub flavored markdown.   │
+│                                     │
+│   Storybook 7.0 uses MDX2 for       │
+│   compiling MDX, and thus no        │
+│   longer supports GFM out of the    │
+│   box.                              │
+│   Because of this you need to       │
+│   explicitly add the GFM plugin     │
+│   in the addon-docs options:        │
+│   https://storybook.js.org/docs/r   │
+│   eact/writing-docs/mdx#lack-of-g   │
+│   ithub-flavored-markdown-gfm       │
+│                                     │
+│   We recommend you follow the       │
+│   guide on the link above,          │
+│   however we can add a temporary    │
+│   storybook addon that helps make   │
+│   this migration easier.            │
+│   We'll install the addon and add   │
+│   it to your storybook config.      │
+│                                     │
+╰─────────────────────────────────────╯
+? Do you want to run the 'github-flavored-markdown-mdx' migration on your project? › (Y/n)✔ Do you want to run the 'github-flavored-markdown-mdx' migration on your project? … yes
+
+An error occurred while installing dependencies:
+PNPM error ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @storybook/node-logger@7.3.1
+
+Please check the logfile generated at ./storybook.log for troubleshooting and try again.
+❌ error when running github-flavored-markdown-mdx migration
+HandledError: PNPM error ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @storybook/node-logger@7.3.1
+
+Please check the logfile generated at ./storybook.log for troubleshooting and try again.
+    at PNPMProxy.addDependencies (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:54:75)
+    at async Object.run (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:167:231)
+    ... 4 lines matching cause stack trace ...
+    at async upgrade (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:417:3865) {
+  handled: true,
+  cause: Error: PNPM error ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @storybook/node-logger@7.3.1
+  
+  Please check the logfile generated at ./storybook.log for troubleshooting and try again.
+      at PNPMProxy.runAddDeps (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:58:5082)
+      at async PNPMProxy.addDependencies (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:53:853)
+      at async Object.run (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:167:231)
+      at async runFixes (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:390:1144)
+      at async automigrate (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:385:676)
+      at async doUpgrade (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:417:3419)
+      at async withTelemetry (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/core-server/dist/index.js:113:3910)
+      at async upgrade (/Users/harrisfauntleroy/.npm/_npx/eebb2d3a7d26a7f1/node_modules/@storybook/cli/dist/generate.js:417:3865)
+}
+
+
+╭ Migration check ran with failures ──╮
+│                                     │
+│   Failed migrations:                │
+│                                     │
+│   github-flavored-markdown-mdx:     │
+│   PNPM error                        │
+│   ERR_PNPM_NO_MATCHING_VERSION      │
+│   No matching version found for     │
+│   @storybook/node-logger@7.3.1      │
+│                                     │
+│   Please check the logfile          │
+│   generated at ./storybook.log      │
+│   for troubleshooting and try       │
+│   again.                            │
+│                                     │
+│   You can find the full logs in     │
+│   /Users/harrisfauntleroy/Documen   │
+│   ts/code/personal/4hv-renewed/mi   │
+│   gration-storybook.log             │
+│                                     │
+│   ───────────────────────────────   │
+│   ──────────────────                │
+│                                     │
+│   If you'd like to run the          │
+│   migrations again, you can do so   │
+│   by running 'npx storybook@next    │
+│   automigrate'                      │
+│                                     │
+│   The automigrations try to         │
+│   migrate common patterns in your   │
+│   project, but might not contain    │
+│   everything needed to migrate to   │
+│   the latest version of             │
+│   Storybook.                        │
+│                                     │
+│   Please check the changelog and    │
+│   migration guide for manual        │
+│   migrations and more               │
+│   information: https://storybook.   │
+│   js.org/migration-guides/7.0       │
+│   And reach out on Discord if you   │
+│   need help:                        │
+│   https://discord.gg/storybook      │
+│                                     │
+│   ───────────────────────────────   │
+│   ──────────────────                │
+│                                     │
+│   Attention: The following          │
+│   dependencies are duplicated       │
+│   which might cause unexpected      │
+│   behavior:                         │
+│                                     │
+│   @storybook/core-common:           │
+│   7.3.0, 7.2.3                      │
+│                                     │
+│   @storybook/node-logger:           │
+│   7.3.0, 7.2.3                      │
+│                                     │
+│   @storybook/types:                 │
+│   7.3.0, 7.2.3                      │
+│                                     │
+│   @storybook/csf-tools:             │
+│   7.2.3, 7.3.0                      │
+│                                     │
+│   @storybook/telemetry:             │
+│   7.2.3, 7.3.0                      │
+│                                     │
+│   You can find more information     │
+│   for a given dependency by         │
+│   running pnpm list --depth=1       │
+│   <package-name>                    │
+│                                     │
+╰─────────────────────────────────────╯
+

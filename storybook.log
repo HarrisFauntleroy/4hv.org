@@ -1,0 +1,27 @@
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Progress: resolved 121, reused 121, downloaded 0, added 0
+Progress: resolved 122, reused 121, downloaded 0, added 0
+Progress: resolved 520, reused 507, downloaded 0, added 0
+Progress: resolved 1088, reused 1070, downloaded 0, added 0
+ WARN  deprecated mdast@3.0.0: `mdast` was renamed to `remark`
+Progress: resolved 1902, reused 1855, downloaded 1, added 0
+Progress: resolved 2116, reused 2069, downloaded 1, added 0
+Progress: resolved 2116, reused 2070, downloaded 1, added 0
+Progress: resolved 2122, reused 2075, downloaded 1, added 0
+Progress: resolved 2124, reused 2077, downloaded 1, added 0
+ ERR_PNPM_NO_MATCHING_VERSION  No matching version found for @storybook/node-logger@7.3.1
+
+This error happened while installing the dependencies of @storybook/addon-mdx-gfm@7.3.1
+
+The latest release of @storybook/node-logger is "7.3.0".
+
+Other releases are:
+  * next: 7.3.0-alpha.0
+  * debug: 6.0.28-alpha.3
+  * prerelease: 6.5.17-alpha.0
+  * future: 7.1.0-alpha.29
+  * pr-23508: 7.1.1-pr-23508-1689802571-5ec8c1c3.0
+  * pr-22631: 7.1.1-pr-22631-1689802540-351503cb.0
+  * canary: 0.0.0-pr-23853-sha-93b33e06
+
+If you need the full list of all 1322 published versions run "$ pnpm view @storybook/node-logger versions".
