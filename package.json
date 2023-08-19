@@ -224,6 +224,7 @@
   "devDependencies": {
     "@jest/types": "29.5.0",
     "@next/eslint-plugin-next": "^13.4.12",
+    "@storybook/addon-designs": "^7.0.5",
     "@storybook/addon-essentials": "^7.2.2",
     "@storybook/addon-interactions": "^7.2.2",
     "@storybook/addon-links": "^7.2.2",
