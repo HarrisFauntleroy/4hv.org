@@ -1,5 +1,4 @@
 import { Center, Tooltip, keyframes } from "@chakra-ui/react";
-import React from "react";
 
 interface Props {
   active: boolean;

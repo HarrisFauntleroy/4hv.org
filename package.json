@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "private": true,
   "homepage": "https://strongly-typed.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/HarrisFauntleroy/strongly-typed/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HarrisFauntleroy/strongly-typed.git"
@@ -278,9 +281,6 @@
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-  },
-  "bugs": {
-    "url": "https://github.com/HarrisFauntleroy/strongly-typed/issues"
   },
   "readme": "ERROR: No README data found!",
   "_id": "strongly-typed@1.0.1"
