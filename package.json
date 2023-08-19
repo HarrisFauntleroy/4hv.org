@@ -27,7 +27,7 @@
     "dev": "next dev",
     "format": "prettier --write .",
     "lint": "eslint . --color --plugin file-progress --rule \"file-progress/activate: 1\"",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "pnpm lint --fix",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
     "db:seed": "prisma db seed",
@@ -35,10 +35,10 @@
     "start": "next start",
     "swagger": "next-swagger-doc-cli next-swagger-doc.json",
     "test": "jest --passWithNoTests",
-    "test:ci": "yarn test --ci --coverage --maxWorkers=2",
-    "test:watch": "yarn test --watchAll",
+    "test:ci": "pnpm test --ci --coverage --maxWorkers=2",
+    "test:watch": "pnpm test --watchAll",
     "type-check": "tsc --noEmit",
-    "watch": "yarn type-check --watch",
+    "watch": "pnpm type-check --watch",
     "prepare": "husky install",
     "start-db": "docker-compose up database",
     "chromatic": "npx chromatic --project-token=chpt_66b2a6e6d032861",
@@ -51,8 +51,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "yarn format",
-      "yarn lint:fix"
+      "pnpm format",
+      "pnpm lint:fix"
     ]
   },
   "browserslist": {
@@ -148,7 +148,7 @@
       "@next/next/no-html-link-for-pages": "off"
     },
     "ignorePatterns": [
-      ".yarn",
+      ".pnpm",
       "dist",
       "generated",
       "node_modules"
