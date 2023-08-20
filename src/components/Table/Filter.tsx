@@ -7,13 +7,15 @@ import { InputHTMLAttributes, useEffect, useState } from "react";
 import { InputDataTypes } from ".";
 import { Debug } from "../Debug";
 
+type FilterProps<TData> = {
+  column: Column<TData>;
+  table: Table<TData>;
+};
+
 export function Filter<TData extends InputDataTypes>({
   column,
   table,
-}: {
-  column: Column<TData>;
-  table: Table<TData>;
-}) {
+}: FilterProps<TData>) {
   const firstValue = table
     .getPreFilteredRowModel()
     .flatRows[0]?.getValue(column.id);
@@ -58,17 +60,19 @@ export function Filter<TData extends InputDataTypes>({
   );
 }
 
+type DebouncedInputProps = {
+  value: string | number;
+  onChange: (value: string | number) => void;
+  debounce?: number;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">;
+
 // A debounced input react component
 export function DebouncedInput({
   value: initialValue,
   onChange,
   debounce = 500,
   ...props
-}: {
-  value: string | number;
-  onChange: (value: string | number) => void;
-  debounce?: number;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">) {
+}: DebouncedInputProps) {
   const [value, setValue] = useState(initialValue);
 
   useEffect(() => {
@@ -98,11 +102,13 @@ export function DebouncedInput({
   );
 }
 
+type RenderSubComponentProps<TData> = {
+  row: Row<TData>;
+};
+
 export const RenderSubComponent = <TData extends InputDataTypes>({
   row,
-}: {
-  row: Row<TData>;
-}) => <Debug data={row.original} />;
+}: RenderSubComponentProps<TData>) => <Debug data={row.original} />;
 
 export const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
   // Rank the item
