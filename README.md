@@ -1,8 +1,29 @@
 # 4hv.org project ⚡️
 
-![WIP Badge](https://img.shields.io/badge/Project%20Status%3A-wip%20%F0%9F%9A%A7-orange)
-
-[![CI Actions 🚀🤖](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml/badge.svg)](https://github.com/HarrisFauntleroy/4hv.org-project/actions/workflows/ci.yml)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/HarrisFauntleroy/4hv.org-project?style=flat)
+<p align="center">
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/releases">
+        <img alt="GitHub release" src="https://img.shields.io/github/package-json/v/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+    <a href="/LICENSE.md">
+        <img alt="GitHub" src="https://img.shields.io/github/license/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/graphs/contributors">
+        <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/actions">
+        <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/HarrisFauntleroy/4hv-renewed/main?&style=for-the-badge">
+    </a>
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/issues?q=is%3Aopen+is%3Aissue">
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/issues?q=is%3Aopen+is%3Aissue">
+        <img alt="GitHub issues" src="https://img.shields.io/github/last-commit/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+    </a>
+    <a href="https://github.com/HarrisFauntleroy/4hv-renewed/issues?q=is%3Aopen+is%3Aissue">
+        <img alt="GitHub issues" src="https://img.shields.io/github/commit-activity/w/HarrisFauntleroy/4hv-renewed?&style=for-the-badge">
+    </a>
+</p>
 
 <!-- PROJECT_DESCRIPTION -->
 
