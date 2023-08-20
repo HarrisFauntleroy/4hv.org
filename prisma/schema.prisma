@@ -1,11 +1,10 @@
-generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["interactiveTransactions"]
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Account {
