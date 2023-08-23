@@ -1,8 +1,3 @@
-/**
- *
- * App
- *
- */
 import { Role } from "@prisma/client";
 import { httpBatchLink } from "@trpc/client/links/httpBatchLink";
 import { loggerLink } from "@trpc/client/links/loggerLink";

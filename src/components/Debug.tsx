@@ -1,12 +1,4 @@
-/**
- *
- * Debug component
- * Displays raw object data in a readable format
- * Displays in development environment
- *
- */
 import { Heading, Stat } from "@chakra-ui/react";
-import React from "react";
 
 export const Debug = (props: Record<string, unknown>) =>
   process.env.NODE_ENV === "development" ? (
