@@ -1,16 +1,10 @@
-import { StackProps } from "@chakra-ui/react";
 import NextHead from "next/head";
 import { PropsWithChildren } from "react";
 
-interface HeadProps extends PropsWithChildren, StackProps {
+interface HeadProps extends PropsWithChildren {
   title?: string;
 }
 
-/**
- * Simple page wrapper
- * Can adjust the Stacks styles
- * Optional title
- */
 export default function Head({ title }: HeadProps) {
   return (
     <NextHead>

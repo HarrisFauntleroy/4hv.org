@@ -1,98 +1,22 @@
 import {
-  Box,
-  Button,
   Flex,
   Grid,
   GridItem,
-  HStack,
-  Input,
   List,
   ListIcon,
   ListItem,
-  Stack,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
   Text,
-  Thead,
-  Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import React, { PropsWithChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 import { MdLogin, MdLogout } from "react-icons/md";
-import { ForumForm } from "../Forum/Form";
+import { Card } from "../Card";
 import { Online } from "../Online";
 import { Navigation } from "./Navigation";
 
 type DefaultLayoutProps = { children: ReactNode };
-
-const cardHeaderStyle: React.CSSProperties = {
-  height: "18px",
-  fontSize: "10px",
-  fontFamily: "verdana, tahoma, arial, sans-serif",
-  color: "#FFF",
-  background: "linear-gradient(#c7d3e6 10%, #869ac0 40%, #8d9fc2 50%)",
-  borderBottom: "1px solid black",
-};
-
-const cardContentStyle: React.CSSProperties = {
-  padding: "4px 5px 5px 4px",
-  // boxShadow: "0 0 8px #000",
-  flex: "1",
-};
-
-const cardStyle: React.CSSProperties = {
-  fontFamily: "verdana, tahoma, arial, helvetica, sans-serif",
-  fontSize: "10px",
-  background: "#DAE7F3",
-  color: "#000",
-  borderRadius: "4px",
-  boxShadow:
-    "#505559 0px 0px 1px 2px, #5a5e62 0px 4px 6px -1px, #8b8d90 0px 1px 0px inset",
-  maxWidth: "100%",
-  maxHeight: "100%",
-  overflow: "scroll",
-  display: "flex",
-  flexDirection: "column",
-  // border: "1px solid grey",
-};
-
-interface GridHeaderProps extends PropsWithChildren {
-  title: string;
-}
-
-const GridHeader = ({ title, children }: GridHeaderProps) => (
-  <Flex style={cardHeaderStyle}>
-    <Flex align="center" width="100%" justify="space-between">
-      <Flex
-        bg="linear-gradient(#6c7e9e 50%, #5b6c8e 50%)"
-        gap={1}
-        align="center"
-        height="100%"
-        paddingRight="16px"
-        borderRadius="0 11px 3px 0"
-      >
-        <Image
-          alt="Blue circle"
-          width="16"
-          height="16"
-          src="/images/bullet2.gif"
-        />
-        <Flex align="center" width="100%">
-          {title}
-        </Flex>
-      </Flex>
-      <Flex>{children}</Flex>
-    </Flex>
-  </Flex>
-);
-
-const GridContent = ({ children }: PropsWithChildren) => (
-  <Box style={cardContentStyle}>{children}</Box>
-);
 
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   const session = useSession();
@@ -165,16 +89,14 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         // Nicer to read
         color={useColorModeValue("blackAlpha.700", "whiteAlpha.700")}
       >
-        <GridItem style={cardStyle} area={"mainMenu"} boxShadow="base">
-          <GridHeader title="Main Menu" />
-          <GridContent>
+        <GridItem area={"mainMenu"}>
+          <Card title="Main Menu">
             <Navigation />
-          </GridContent>
+          </Card>
         </GridItem>
 
-        <GridItem style={cardStyle} area={"welcome"} boxShadow="base">
-          <GridHeader title="Welcome" />
-          <GridContent>
+        <GridItem area={"welcome"}>
+          <Card title="Welcome">
             <List>
               {session ? (
                 <ListItem onClick={() => signOut({ callbackUrl: "/" })}>
@@ -192,36 +114,28 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                 </ListItem>
               )}
             </List>
-          </GridContent>
+          </Card>
         </GridItem>
-
-        <GridItem style={cardStyle} area={"online"} boxShadow="base">
-          <GridHeader title="Online" />
-          <GridContent>
+        <GridItem area={"online"}>
+          <Card title="Online">
             <Online />
-          </GridContent>
+          </Card>
         </GridItem>
-
-        <GridItem style={cardStyle} area={"birthdays"} boxShadow="base">
-          <GridHeader title="Members Birthdays:" />
-          <GridContent>birthdays</GridContent>
+        <GridItem area={"birthdays"}>
+          <Card title="Members Birthdays:">birthdays</Card>
         </GridItem>
-
-        <GridItem style={cardStyle} area={"contact"} boxShadow="base">
-          <GridHeader title="Contact" />
-          <GridContent>
+        <GridItem area={"contact"}>
+          <Card title="Contact">
             <Text>
               If you need assistance, please send an email to forum at 4hv dot
               org. To ensure your email is not marked as spam, please include
               the phrase &quot;4hv help&quot; in the subject line. You can also
               find assistance via IRC, at irc.shadowworld.net, room #hvcomm.
             </Text>
-          </GridContent>
+          </Card>
         </GridItem>
-
-        <GridItem style={cardStyle} area={"support"} boxShadow="base">
-          <GridHeader title="Support 4hv.org!" />
-          <GridContent>
+        <GridItem area={"support"}>
+          <Card title="Support 4hv.org!">
             <Text>
               Donate: 4hv.org is hosted on a dedicated server. Unfortunately,
               this server costs and we rely on the help of site members to keep
@@ -242,95 +156,12 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               triumph of 4hv.org. They are deserving of my most heartfelt
               thanks.
             </Text>
-          </GridContent>
+          </Card>
         </GridItem>
+        <GridItem area={"content"}>{children}</GridItem>
 
-        <GridItem style={cardStyle} area={"content"} boxShadow="base">
-          <GridHeader title="Forums">
-            <ForumForm mode="add" label="New Forum" />
-          </GridHeader>
-          <GridContent>{children}</GridContent>
-          <GridContent>
-            <TableContainer height="100%" padding="4px">
-              <Flex alignItems="center">
-                <Text>Information</Text>
-              </Flex>
-              <Table>
-                <Thead>
-                  <Tr></Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>Hello</Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-            </TableContainer>
-          </GridContent>
-          <GridContent>
-            <HStack
-              height="100%"
-              border="1px solid black"
-              padding="4px"
-              justify="space-around"
-            >
-              <Flex width="1fr" justify="center" align="center">
-                <Flex justify="center" align="center" gap="8px">
-                  <Image
-                    src="/images/new_small.png"
-                    alt=""
-                    height="16"
-                    width="16"
-                  />
-                  <Stack>
-                    <Text>New</Text>
-                    <Text>posts</Text>
-                  </Stack>
-                </Flex>
-                <Flex justify="center" align="center" gap="8px">
-                  <Image
-                    src="/images/nonew_small.png"
-                    alt=""
-                    height="16"
-                    width="16"
-                  />
-                  <Stack>
-                    <Text>No</Text>
-                    <Text>new</Text>
-                    <Text>posts</Text>
-                  </Stack>
-                </Flex>
-                <Flex justify="center" align="center" gap="8px">
-                  <Image
-                    src="/images/closed_small.png"
-                    alt=""
-                    height="16"
-                    width="16"
-                  />
-                  <Stack>
-                    <Text>Closed</Text>
-                    <Text>forum</Text>
-                  </Stack>
-                </Flex>
-              </Flex>
-              <Stack width="1fr" justify="center" align="center">
-                <Input placeholder="Search" width="130px" height="16px" />
-                <Button width="45.15px" height="15px">
-                  Search
-                </Button>
-              </Stack>
-              <Stack width="1fr" justify="center" align="center">
-                <Text>You cannot start new topics</Text>
-                <Text>You cannot post replies</Text>
-                <Text>You cannot edit your posts</Text>
-              </Stack>
-            </HStack>
-          </GridContent>
-        </GridItem>
-
-        <GridItem style={cardStyle} area={"legal"} boxShadow="base">
-          <GridHeader title="Legal Information" />
-          <GridContent>
+        <GridItem area={"legal"}>
+          <Card title="Legal Information">
             <Text>
               This site is powered by e107, which is released under the GNU GPL
               License. All work on this site, except where otherwise noted, is
@@ -340,7 +171,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
               Disclaimer and Policies page for information on your rights and
               responsibilities regarding this site.
             </Text>
-          </GridContent>
+          </Card>
         </GridItem>
       </Grid>
     </Flex>

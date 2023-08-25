@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-designs",
+    "@tomfreudenberg/next-auth-mock/storybook",
   ],
   framework: {
     name: "@storybook/nextjs",

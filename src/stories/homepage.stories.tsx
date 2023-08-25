@@ -1,15 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Index from "../pages/index";
+import Home from "../pages/index";
 
-const meta: Meta<typeof Index> = {
+const meta: Meta<typeof Home> = {
   title: "pages/Home",
-  component: Index,
+  component: Home,
+  decorators: [],
   parameters: {
     assets: ["./assets/4hv.org_.png"],
+    nextjs: {
+      router: {
+        basePath: "/",
+      },
+    },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Index>;
 
-export const Primary: Story = {};
+type Story = StoryObj<typeof Home>;
+
+export const Default: Story = {};

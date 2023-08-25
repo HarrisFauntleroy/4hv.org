@@ -41,7 +41,6 @@ const MyApp = (({ Component, pageProps, session }: AppPropsWithLayout) => {
 
   return (
     <SessionProvider session={session}>
-      {/* Next SEO  */}
       <DefaultSeo {...SEO} />
       <AppContext>{getLayout(<Component {...pageProps} />)}</AppContext>
     </SessionProvider>

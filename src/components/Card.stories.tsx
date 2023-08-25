@@ -18,9 +18,12 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 export const Primary: Story = {
-  render: () => {
+  args: {
+    title: "Example title",
+  },
+  render: (args) => {
     return (
-      <Card>
+      <Card {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed ipsum
         arcu. Donec mattis est in nisl efficitur, molestie congue quam eleifend.
         Sed dignissim urna urna, eleifend aliquet augue sodales eget.

@@ -1,12 +1,20 @@
-import { Card } from "@mantine/core";
-import { Changelog } from "src/components/Releases";
+import { Stack } from "@mantine/core";
+import { Card } from "src/components/Card";
 
-const Index = () => {
+const Home = () => {
+  const news = [1];
+
   return (
-    <Card bg="transparent">
-      <Changelog repo="HarrisFauntleroy/4hv-renewed" />
-    </Card>
+    <Stack spacing="10px">
+      {news.map(() => {
+        return (
+          <Card title="News" key="only-one">
+            News
+          </Card>
+        );
+      })}
+    </Stack>
   );
 };
 
-export default Index;
+export default Home;
