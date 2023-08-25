@@ -1,7 +1,7 @@
 import { Flex, Stack } from "@mantine/core";
 import { Card } from "src/components/Card";
 import { Forum, ForumWithSubforums } from "src/components/Forum";
-import { Information } from "src/components/test";
+import { Information } from "src/components/Information";
 import Head from "../components/Head";
 import { Loading } from "../components/Loading";
 import { trpc } from "../utils/trpc";
