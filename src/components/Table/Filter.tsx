@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CloseIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { rankItem } from "@tanstack/match-sorter-utils";
@@ -110,6 +109,7 @@ export const RenderSubComponent = <TData extends InputDataTypes>({
   row,
 }: RenderSubComponentProps<TData>) => <Debug data={row.original} />;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
   // Rank the item
   const itemRank = rankItem(row.getValue(columnId), value);

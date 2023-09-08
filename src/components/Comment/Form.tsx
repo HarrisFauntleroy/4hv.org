@@ -24,7 +24,7 @@ import { AlertPop } from "../Form/AlertPop";
 type FormValues = CommentWithComments;
 
 interface FormProps {
-  onSubmit: () => void;
+  onSubmit: (data: FormValues) => void;
   defaultValues?: Partial<FormValues>;
 }
 
@@ -85,39 +85,13 @@ export const CommentForm = ({
   icon,
   label,
 }: CommentFormProps) => {
-  const utils = trpc.useContext();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const createComment = trpc.useMutation("comment.create", {
-    async onSuccess() {
-      await utils.invalidateQueries([allComments]);
-    },
-  });
-
-  const updateComment = trpc.useMutation("comment.update", {
-    async onSuccess() {
-      await utils.invalidateQueries([allComments]);
-    },
-  });
-
-  const deleteComment = trpc.useMutation("comment.delete", {
-    async onSuccess() {
-      await utils.invalidateQueries([allComments]);
-    },
-  });
-
-  const archiveComment = trpc.useMutation("comment.archive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allComments]);
-    },
-  });
-
-  const unarchiveComment = trpc.useMutation("comment.unarchive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allComments]);
-    },
-  });
+  const createComment = trpc.comment.create.useMutation();
+  const updateComment = trpc.comment.update.useMutation();
+  const deleteComment = trpc.comment.delete.useMutation();
+  const archiveComment = trpc.comment.archive.useMutation();
+  const unarchiveComment = trpc.comment.unarchive.useMutation();
 
   const session = useSession();
 

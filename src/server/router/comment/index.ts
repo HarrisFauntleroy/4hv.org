@@ -1,8 +1,8 @@
 import { Prisma } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createRouter } from "../../createRouter";
 import { prisma } from "../../prisma";
+import { publicProcedure, router } from "../../trpc/trpc"; // Adjust import based on your file structure
 
 const defaultCommentSelect = Prisma.validator<Prisma.CommentSelect>()({
   id: true,
@@ -21,48 +21,34 @@ const defaultCommentSelect = Prisma.validator<Prisma.CommentSelect>()({
   threadId: true,
 });
 
-export const commentRouter = createRouter()
-  .mutation("create", {
-    input: z.object({
-      userId: z.string(),
-      content: z.string(),
-      threadId: z.string(),
-    }),
-    async resolve({ input }) {
-      return prisma.comment.create({
+export const commentRouter = router({
+  create: publicProcedure
+    .input(
+      z.object({
+        userId: z.string(),
+        content: z.string(),
+        threadId: z.string(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      return await prisma.comment.create({
         data: input,
-        // include: defaultCommentSelect,
       });
-    },
-  })
-  // read
-  .query("all", {
-    async resolve() {
-      /**
-       * For pagination you can have a look at this docs site
-       * @link https://trpc.io/docs/useInfiniteQuery
-       */
-
-      return prisma.comment.findMany({
-        where: {
-          deleted: {
-            equals: false,
-          },
-        },
-        include: defaultCommentSelect,
-      });
-    },
-  })
-  .query("byId", {
-    input: z.object({
-      id: z.string(),
     }),
-    async resolve({ input }) {
+
+  all: publicProcedure.query(async () => {
+    return await prisma.comment.findMany({
+      where: { deleted: { equals: false } },
+      include: defaultCommentSelect,
+    });
+  }),
+
+  byId: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input }) => {
       const { id } = input;
       const comment = await prisma.comment.findUnique({
-        where: {
-          id,
-        },
+        where: { id },
         include: defaultCommentSelect,
       });
       if (!comment) {
@@ -72,94 +58,64 @@ export const commentRouter = createRouter()
         });
       }
       return comment;
-    },
-  })
-  .query("byUser", {
-    input: z.object({
-      userId: z.string(),
     }),
-    async resolve({ input }) {
+
+  byUser: publicProcedure
+    .input(z.object({ userId: z.string() }))
+    .query(async ({ input }) => {
       const { userId } = input;
-      const comment = await prisma.comment.findMany({
-        where: {
-          userId,
-          deleted: {
-            equals: false,
-          },
-        },
+      return await prisma.comment.findMany({
+        where: { userId, deleted: { equals: false } },
         include: defaultCommentSelect,
       });
-      if (!comment) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: `No comment with userId '${userId}'`,
-        });
-      }
-      return comment;
-    },
-  })
-  .mutation("update", {
-    input: z.object({
-      id: z.string(),
-      userId: z.string(),
-      data: z.object({
-        content: z.string(),
-      }),
     }),
-    async resolve({ input }) {
+
+  update: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        userId: z.string(),
+        data: z.object({
+          content: z.string(),
+        }),
+      })
+    )
+    .mutation(async ({ input }) => {
       const { id, data } = input;
-      return prisma.comment.update({
+      return await prisma.comment.update({
         where: { id },
         data,
         include: defaultCommentSelect,
       });
-    },
-  })
-  // delete
-  .mutation("delete", {
-    input: z.object({
-      id: z.string(),
     }),
-    async resolve({ input }) {
+
+  delete: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input }) => {
       const { id } = input;
-      await prisma.comment.update({
+      return await prisma.comment.update({
         where: { id },
         data: { deleted: true },
       });
-      return {
-        id,
-      };
-    },
-  })
-  // unarchive
-  .mutation("unarchive", {
-    input: z.object({
-      id: z.string(),
     }),
-    async resolve({ input }) {
+
+  unarchive: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input }) => {
       const { id } = input;
-      await prisma.comment.update({
+      return await prisma.comment.update({
         where: { id },
         data: { archived: false },
       });
-      return {
-        id,
-      };
-    },
-  })
-  // archive
-  .mutation("archive", {
-    input: z.object({
-      id: z.string(),
     }),
-    async resolve({ input }) {
+
+  archive: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input }) => {
       const { id } = input;
-      await prisma.comment.update({
+      return await prisma.comment.update({
         where: { id },
         data: { archived: true },
       });
-      return {
-        id,
-      };
-    },
-  });
+    }),
+});

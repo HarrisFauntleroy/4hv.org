@@ -1,11 +1,3 @@
-/**
- *
- * Internationalization
- *
- */
-import enAUMessages from "../../lang/en-AU.json";
-import enUSMessages from "../../lang/en-US.json";
-import zhCNMessages from "../../lang/zh-CN.json";
 import {
   Dispatch,
   PropsWithChildren,
@@ -14,6 +6,9 @@ import {
   useState,
 } from "react";
 import { IntlProvider as Provider } from "react-intl";
+import enAUMessages from "../../lang/en-AU.json";
+import enUSMessages from "../../lang/en-US.json";
+import zhCNMessages from "../../lang/zh-CN.json";
 
 export enum LOCALE {
   AUSTRALIAN = "en-AU",

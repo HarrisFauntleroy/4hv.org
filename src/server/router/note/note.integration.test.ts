@@ -1,6 +1,6 @@
 import { Note } from "@prisma/client";
 import { inferProcedureInput } from "@trpc/server";
-import { testUserId } from "prisma/seed";
+import { testUserId } from "../../../../prisma/seed";
 import { CreateContextOptions, createContextInner } from "../../trpc/context";
 import { AppRouter, appRouter } from "../_app";
 

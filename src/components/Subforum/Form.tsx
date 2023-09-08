@@ -97,39 +97,13 @@ export const SubforumForm = ({
   icon,
   label,
 }: SubforumFormProps) => {
-  const utils = trpc.useContext();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const createSubforum = trpc.useMutation("subforum.create", {
-    async onSuccess() {
-      await utils.invalidateQueries([allSubforums]);
-    },
-  });
-
-  const updateSubforum = trpc.useMutation("subforum.update", {
-    async onSuccess() {
-      await utils.invalidateQueries([allSubforums]);
-    },
-  });
-
-  const deleteSubforum = trpc.useMutation("subforum.delete", {
-    async onSuccess() {
-      await utils.invalidateQueries([allSubforums]);
-    },
-  });
-
-  const archiveSubforum = trpc.useMutation("subforum.archive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allSubforums]);
-    },
-  });
-
-  const unarchiveSubforum = trpc.useMutation("subforum.unarchive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allSubforums]);
-    },
-  });
+  const createSubforum = trpc.subforum.create.useMutation();
+  const updateSubforum = trpc.subforum.update.useMutation();
+  const deleteSubforum = trpc.subforum.delete.useMutation();
+  const archiveSubforum = trpc.subforum.archive.useMutation();
+  const unarchiveSubforum = trpc.subforum.unarchive.useMutation();
 
   const session = useSession();
 

@@ -18,7 +18,6 @@ import Auth from "./auth";
 
 function MyApp(properties: AppPropsWithLayout) {
   const { Component, pageProps } = properties;
-  // initI18n();
 
   const getLayout =
     Component.getLayout ??

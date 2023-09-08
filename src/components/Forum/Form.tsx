@@ -69,8 +69,6 @@ export const Form = ({ onSubmit, formData }: FormProps) => {
   );
 };
 
-const allForums = "forum.all";
-
 interface ForumFormProps extends Pick<IconButtonProps, "icon"> {
   forum?: ForumWithSubforums;
   mode: "edit" | "add" | "delete" | "archive" | "unarchive";
@@ -78,39 +76,13 @@ interface ForumFormProps extends Pick<IconButtonProps, "icon"> {
 }
 
 export const ForumForm = ({ forum, mode, icon, label }: ForumFormProps) => {
-  const utils = trpc.useContext();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const addForum = trpc.useMutation("forum.add", {
-    async onSuccess() {
-      await utils.invalidateQueries([allForums]);
-    },
-  });
-
-  const editForum = trpc.useMutation("forum.edit", {
-    async onSuccess() {
-      await utils.invalidateQueries([allForums]);
-    },
-  });
-
-  const deleteForum = trpc.useMutation("forum.delete", {
-    async onSuccess() {
-      await utils.invalidateQueries([allForums]);
-    },
-  });
-
-  const archiveForum = trpc.useMutation("forum.archive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allForums]);
-    },
-  });
-
-  const unarchiveForum = trpc.useMutation("forum.unarchive", {
-    async onSuccess() {
-      await utils.invalidateQueries([allForums]);
-    },
-  });
+  const addForum = trpc.forum.add.useMutation();
+  const editForum = trpc.forum.edit.useMutation();
+  const deleteForum = trpc.forum.delete.useMutation();
+  const archiveForum = trpc.forum.archive.useMutation();
+  const unarchiveForum = trpc.forum.unarchive.useMutation();
 
   const session = useSession();
 

@@ -115,6 +115,7 @@
       "plugin:jest/recommended"
     ],
     "rules": {
+      "no-unused-vars": "off",
       "react/react-in-jsx-scope": "off",
       "security/detect-object-injection": "off",
       "@next/next/no-html-link-for-pages": "off",
