@@ -24,7 +24,7 @@ import { AlertPop } from "../Form/AlertPop";
 type FormValues = CommentWithComments;
 
 interface FormProps {
-  onSubmit: (data: FormValues) => void;
+  onSubmit: () => void;
   defaultValues?: Partial<FormValues>;
 }
 

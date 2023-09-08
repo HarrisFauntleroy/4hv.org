@@ -52,7 +52,7 @@ export function Releases({ repo }: Props) {
             </Text>
           }
         >
-          <Markdown colorScheme="light" source={String(release.body)} />
+          <Markdown colorScheme="light" value={String(release.body)} />
           <Text
             color="dimmed"
             size="sm"

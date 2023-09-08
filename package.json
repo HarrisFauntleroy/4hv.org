@@ -115,17 +115,9 @@
       "plugin:jest/recommended"
     ],
     "rules": {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_"
-        }
-      ],
-      "import/export": "off",
-      "import/extensions": "off",
-      "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "security/detect-object-injection": "off",
+      "@next/next/no-html-link-for-pages": "off",
       "simple-import-sort/imports": [
         "off",
         {
@@ -141,8 +133,7 @@
             ]
           ]
         }
-      ],
-      "@next/next/no-html-link-for-pages": "off"
+      ]
     },
     "ignorePatterns": [
       ".pnpm",
@@ -158,10 +149,9 @@
     "@chakra-ui/react": "^2.7.0",
     "@chakra-ui/theme-tools": "2.0.16",
     "@choc-ui/chakra-autocomplete": "^5.1.9",
-    "chakra-ui-steps": "^1.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@harrisfauntleroy/design-system": "^2.1.5",
+    "@harrisfauntleroy/design-system": "^2.1.9",
     "@mantine/core": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
     "@mantine/modals": "^6.0.17",
@@ -174,10 +164,12 @@
     "@tanstack/match-sorter-utils": "^8.8.4",
     "@tanstack/react-query": "^4.29.11",
     "@tanstack/react-table": "^8.9.3",
-    "@trpc/client": "9.27.3",
-    "@trpc/next": "9.27.3",
-    "@trpc/react": "9.27.3",
-    "@trpc/server": "9.27.3",
+    "@trpc/client": "^10.23.0",
+    "@trpc/next": "^10.23.0",
+    "@trpc/react": "9.27.4",
+    "@trpc/react-query": "^10.23.0",
+    "@trpc/server": "^10.23.0",
+    "chakra-ui-steps": "^1.8.0",
     "clsx": "1.2.1",
     "cookies-next": "^2.1.2",
     "date-fns": "^2.30.0",

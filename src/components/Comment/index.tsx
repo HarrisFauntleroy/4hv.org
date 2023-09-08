@@ -9,7 +9,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Comment as PrismaComment, User } from "@prisma/client";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 const CommentLayout = ({ children }: PropsWithChildren) => (
   <Grid

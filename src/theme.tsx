@@ -11,12 +11,6 @@ const globalStyles = {
       display: "flex",
       padding: 0,
       margin: 0,
-      // backgroundImage: mode(
-      // 	"url(/images/background-light.jpg)",
-      // 	undefined
-      // )(props),
-      // backgroundSize: mode("50px 50px", "91px 64px")(props),
-      // backgroundRepeat: mode("repeat", undefined)(props),
     },
     ".w-md-editor-show-preview": {
       boxShadow: "0px !important",
@@ -31,8 +25,6 @@ const activeLabelStyles = {
 const colors = {
   black: "#0e1012",
   gray: {
-    // Possible gray
-    // #1F1B24
     "50": "#f9fafa",
     "100": "#f1f1f2",
     "200": "#e7e7e8",

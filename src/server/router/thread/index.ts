@@ -1,84 +1,61 @@
-import logger from "../../../utils/logger";
-import { InferQueryOutput } from "../../../utils/trpc";
-import { createRouter } from "../../createRouter";
-import { prisma } from "../../prisma";
 import { Prisma } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { createRouter } from "../../createRouter";
+import { prisma } from "../../prisma";
 
-const defaultForumSelect = Prisma.validator<Prisma.ForumSelect>()({
+const defaultThreadSelect = Prisma.validator<Prisma.ThreadSelect>()({
   id: true,
   title: true,
-  subforums: {
+  content: true,
+  comments: {
     include: {
-      threads: {
-        include: {
-          comments: {
-            include: {
-              comments: true,
-            },
-          },
-        },
-      },
+      comments: true,
+      user: true,
     },
   },
+  status: true,
   createdAt: true,
   updatedAt: true,
   archived: true,
   deleted: true,
   userId: true,
   user: true,
+  subforum: {
+    select: {
+      title: true,
+      id: true,
+    },
+  },
+  subforumId: true,
 });
 
-export type ForumWithRelations = InferQueryOutput<"forum.all">;
-
-export const forumRouter = createRouter()
+export const threadRouter = createRouter()
   // create
-  .mutation("add", {
+  .mutation("create", {
     input: z.object({
       userId: z.string(),
       title: z.string(),
+      content: z.string(),
+      subforumId: z.string(),
     }),
     async resolve({ input }) {
-      return prisma.forum.create({
+      return prisma.thread.create({
         data: input,
-        select: defaultForumSelect,
+        // Don't really need to include, just invalidate the queries, ehh idk
+        // select: defaultThreadSelect,
       });
     },
   })
-  // read
   .query("all", {
     async resolve() {
-      /**
-       * For pagination you can have a look at this docs site
-       * @link https://trpc.io/docs/useInfiniteQuery
-       */
-
-      return prisma.forum.findMany({
+      return prisma.thread.findMany({
         where: {
           deleted: {
             equals: false,
           },
         },
-        include: {
-          user: true,
-          subforums: {
-            include: {
-              user: true,
-              threads: {
-                include: {
-                  user: true,
-                  comments: {
-                    include: {
-                      user: true,
-                      comments: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
+        select: defaultThreadSelect,
       });
     },
   })
@@ -88,19 +65,19 @@ export const forumRouter = createRouter()
     }),
     async resolve({ input }) {
       const { id } = input;
-      const forum = await prisma.forum.findUnique({
+      const thread = await prisma.thread.findUnique({
         where: {
           id,
         },
-        select: defaultForumSelect,
+        select: defaultThreadSelect,
       });
-      if (!forum) {
+      if (!thread) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: `No forum with id '${id}'`,
+          message: `No thread with id '${id}'`,
         });
       }
-      return forum;
+      return thread;
     },
   })
   .query("byUser", {
@@ -109,55 +86,39 @@ export const forumRouter = createRouter()
     }),
     async resolve({ input }) {
       const { userId } = input;
-      const forum = await prisma.forum.findMany({
+      const thread = await prisma.thread.findMany({
         where: {
           userId,
           deleted: {
             equals: false,
           },
         },
-        include: {
-          subforums: {
-            include: {
-              threads: {
-                include: {
-                  comments: {
-                    include: {
-                      comments: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-          user: true,
-        },
+        select: defaultThreadSelect,
       });
-      if (!forum) {
+      if (!thread) {
         throw new TRPCError({
           code: "NOT_FOUND",
-          message: `No forum with userId '${userId}'`,
+          message: `No thread with userId '${userId}'`,
         });
       }
-      logger.info(forum);
-      return forum;
+      return thread;
     },
   })
   // update
-  .mutation("edit", {
+  .mutation("update", {
     input: z.object({
       id: z.string(),
       userId: z.string(),
       data: z.object({
-        title: z.string(),
+        content: z.string(),
       }),
     }),
     async resolve({ input }) {
       const { id, data } = input;
-      return prisma.forum.update({
+      return prisma.thread.update({
         where: { id },
         data,
-        select: defaultForumSelect,
+        select: defaultThreadSelect,
       });
     },
   })
@@ -168,7 +129,7 @@ export const forumRouter = createRouter()
     }),
     async resolve({ input }) {
       const { id } = input;
-      await prisma.forum.update({
+      await prisma.thread.update({
         where: { id },
         data: { deleted: true },
       });
@@ -184,7 +145,7 @@ export const forumRouter = createRouter()
     }),
     async resolve({ input }) {
       const { id } = input;
-      await prisma.forum.update({
+      await prisma.thread.update({
         where: { id },
         data: { archived: false },
       });
@@ -200,7 +161,7 @@ export const forumRouter = createRouter()
     }),
     async resolve({ input }) {
       const { id } = input;
-      await prisma.forum.update({
+      await prisma.thread.update({
         where: { id },
         data: { archived: true },
       });

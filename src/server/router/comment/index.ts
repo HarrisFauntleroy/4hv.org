@@ -1,8 +1,8 @@
-import { createRouter } from "../../createRouter";
-import { prisma } from "../../prisma";
 import { Prisma } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { createRouter } from "../../createRouter";
+import { prisma } from "../../prisma";
 
 const defaultCommentSelect = Prisma.validator<Prisma.CommentSelect>()({
   id: true,
