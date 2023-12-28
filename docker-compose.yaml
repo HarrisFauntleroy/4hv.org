@@ -21,7 +21,7 @@ services:
   database:
     command: -p 5432
     restart: always
-    image: postgres:15
+    image: postgres:16
     env_file:
       - .env
     ports:
