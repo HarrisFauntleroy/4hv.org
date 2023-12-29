@@ -158,7 +158,7 @@
   "dependencies": {
     "@chakra-ui/icons": "2.0.19",
     "@chakra-ui/react": "^2.7.0",
-    "@chakra-ui/theme-tools": "2.0.16",
+    "@chakra-ui/theme-tools": "2.0.18",
     "@choc-ui/chakra-autocomplete": "^5.1.9",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
