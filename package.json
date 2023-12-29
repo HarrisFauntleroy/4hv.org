@@ -185,7 +185,7 @@
     "cookies-next": "^2.1.2",
     "date-fns": "^2.30.0",
     "framer-motion": "7.10.3",
-    "next": "13.4.10",
+    "next": "13.4.19",
     "next-auth": "^4.22.3",
     "next-remove-imports": "1.0.11",
     "next-seo": "^5.15.0",
