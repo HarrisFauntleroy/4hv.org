@@ -99,8 +99,8 @@ dependencies:
     specifier: ^4.22.3
     version: 4.22.3(next@13.4.10)(nodemailer@6.9.4)(react-dom@18.2.0)(react@18.2.0)
   next-remove-imports:
-    specifier: 1.0.11
-    version: 1.0.11(webpack@5.88.2)
+    specifier: 1.0.12
+    version: 1.0.12(webpack@5.88.2)
   next-seo:
     specifier: ^5.15.0
     version: 5.15.0(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
@@ -15053,8 +15053,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-remove-imports@1.0.11(webpack@5.88.2):
-    resolution: {integrity: sha512-i+L8kcP1hM3nOCNv8NWhtJGWwkEDtej0BaRlCzcZDQeXCT3cwaJo4VyD9x4449sbJwj9xt/wmqlH8fg5g8RaYg==}
+  /next-remove-imports@1.0.12(webpack@5.88.2):
+    resolution: {integrity: sha512-3tdL6VuSykJ/mcUwxfjQ+Fd4OpEmrwWVHtLZ/fhNcSaToWCutUp7nrfIww7/4CURe9I7BDCQE9AWl4fkY3YZOQ==}
     dependencies:
       '@babel/core': 7.22.10
       babel-loader: 9.1.3(@babel/core@7.22.10)(webpack@5.88.2)
