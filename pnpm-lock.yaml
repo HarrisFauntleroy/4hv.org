@@ -132,8 +132,8 @@ dependencies:
     specifier: 10.1.2
     version: 10.1.2
   uuid:
-    specifier: 9.0.0
-    version: 9.0.0
+    specifier: 9.0.1
+    version: 9.0.1
   ws:
     specifier: 8.13.0
     version: 8.13.0
@@ -5491,7 +5491,7 @@ packages:
       react-inspector: 6.0.2(react@18.2.0)
       telejson: 7.1.0
       ts-dedent: 2.2.0
-      uuid: 9.0.0
+      uuid: 9.0.1
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -5525,7 +5525,7 @@ packages:
       react-inspector: 6.0.2(react@18.2.0)
       telejson: 7.1.0
       ts-dedent: 2.2.0
-      uuid: 9.0.0
+      uuid: 9.0.1
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -14559,7 +14559,7 @@ packages:
       non-layered-tidy-tree-layout: 2.0.2
       stylis: 4.3.0
       ts-dedent: 2.2.0
-      uuid: 9.0.0
+      uuid: 9.0.1
       web-worker: 1.2.0
     dev: false
 
@@ -18788,8 +18788,8 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
-  /uuid@9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
 
   /uvu@0.5.6:
