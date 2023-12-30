@@ -198,7 +198,7 @@
     "react-query": "3.39.3",
     "superjson": "1.12.2",
     "unified": "10.1.2",
-    "uuid": "9.0.0",
+    "uuid": "9.0.1",
     "ws": "8.13.0",
     "zod": "3.21.4",
     "zod-prisma-types": "^2.7.4"
