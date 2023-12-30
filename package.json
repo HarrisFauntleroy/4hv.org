@@ -196,7 +196,7 @@
     "react-icons": "4.9.0",
     "react-intl": "6.1.2",
     "react-query": "3.39.3",
-    "superjson": "1.12.2",
+    "superjson": "1.12.4",
     "unified": "10.1.2",
     "uuid": "9.0.0",
     "ws": "8.13.0",
