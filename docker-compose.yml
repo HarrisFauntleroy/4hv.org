@@ -8,7 +8,7 @@ services:
     depends_on:
       - db-4hv
   db-4hv:
-    image: postgres:16
+    image: postgres:17
     volumes:
       - 4hv-pgdata:/var/lib/postgresql/data
 
