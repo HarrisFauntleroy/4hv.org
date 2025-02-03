@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-ruby "3.3.6"
+ruby "3.4.1"
 
 # -------- Core Rails --------
 gem "rails", ">= 7.1.3.2", "< 7.3"
