@@ -15,25 +15,16 @@ require:
   - rubocop-rspec
   - rubocop-rspec_rails
 
-Rails/LexicallyScopedActionFilter:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-
 Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
   Exclude:
-    - 'config/**/*.rb'
-    - 'lib/**/*.rake'
+    - "config/**/*.rb"
 
 Layout/LineLength:
   Exclude:
-    - 'config/**/*.rb'
-
-Rails/BulkChangeTable:
-  Exclude:
-    - 'db/migrate/*'
+    - "config/**/*.rb"
 
 I18n/RailsI18n:
   Enabled: true
@@ -41,26 +32,7 @@ I18n/GetText:
   Enabled: false
 I18n/RailsI18n/DecorateString:
   Exclude:
-    - 'db/seeds.rb'
-    - 'spec/helpers/user_helper_spec.rb'
-
-# Just noise at the moment
-RSpec/ExampleLength:
-  Enabled: false
-RSpec/MultipleExpectations:
-  Enabled: false
-RSpec/RepeatedExample:
-  Enabled: false
-RSpec/ContextWording:
-  Enabled: false
-RSpec/MultipleMemoizedHelpers:
-  Enabled: false
-RSpec/IdenticalEqualityAssertion:
-  Enabled: false
-RSpec/NestedGroups:
-  Enabled: false
-RSpec/NamedSubject:
-  Enabled: false
-
-Layout/LineLength:
-  Enabled: false
+    - "db/seeds.rb"
+    - "db/seeds/development.rb"
+    - "spec/rails_helper.rb"
+    - "app/services/**/*.rb"
