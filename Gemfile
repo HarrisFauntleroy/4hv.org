@@ -4,7 +4,7 @@ source "https://rubygems.org"
 ruby "3.3.6"
 
 # -------- Core Rails --------
-gem "rails", ">= 7.1.3.2", "< 7.3"
+gem "rails", ">= 7.1.3.2", "< 8.0.3"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 # Use pg as the database for Active Record
