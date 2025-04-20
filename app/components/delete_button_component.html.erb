@@ -4,7 +4,7 @@
   class: "btn",
   method: :delete,
   data: {
-    turbo_confirm: "Are you sure?",
+    turbo_confirm: t("common.confirmations.delete")
   },
   id: "delete_#{@record.model_name.singular}_button" %>
 <% end %>
