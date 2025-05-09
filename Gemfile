@@ -36,7 +36,7 @@ gem "pundit"
 # -------- UI Components & Pagination --------
 gem "view_component", "~> 3.12"
 gem "kaminari"
-gem "pagy", "~> 8.4"
+gem "pagy", ">= 8.4", "< 10"
 
 # -------- Security & Best Practices --------
 gem "secure_headers"
